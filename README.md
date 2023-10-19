@@ -18,10 +18,8 @@
 4. Lie Groups Algebras
 5. Camera and Image
 6. Non-Linear Optimization
-7. VO1
-8. VO2
-9. 
-
+7. Visual Odometry
+8. About SLAM
 
 
 
