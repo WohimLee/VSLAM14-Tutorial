@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.cu": "*.cpp",
+        "*.py": "python",
+        "config": "django-html",
+        "fstream": "cpp",
+        "chrono": "cpp",
+        "geometry": "cpp"
+    }
+}
