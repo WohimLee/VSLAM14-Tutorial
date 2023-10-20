@@ -46,7 +46,7 @@ objs/$(TARGET).o : $(MAIN)
 	@mkdir -p $(dir $@)
 	@g++ -c $< -o $@ $(compile_options)
 
-Examples/$(TARGET) : objs/$(TARGET).o 
+Examples/$(TARGET) : objs/$(TARGET).o $(ORB)
 	@echo [INFO]: Link $^ to $@
 	@mkdir -p $(dir $@)
 	@g++ $< -o $@ $(linking_options)

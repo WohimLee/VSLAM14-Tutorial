@@ -22,6 +22,7 @@ int main(int argc, char** argv)
 
     cv::cvtColor(mImGray, mImGray, cv::COLOR_RGB2GRAY);
 
+    
     return 0;
 }
 
