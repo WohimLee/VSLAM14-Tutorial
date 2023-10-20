@@ -1,17 +1,17 @@
 
 #include "Frame.h"
 
-// #include "G2oTypes.h"
-// #include "MapPoint.h"
-// #include "KeyFrame.h"
-// #include "ORBextractor.h"
-// #include "Converter.h"
-// #include "ORBmatcher.h"
-// #include "GeometricCamera.h"
+#include "G2oTypes.h"
+#include "MapPoint.h"
+#include "KeyFrame.h"
+#include "ORBextractor.h"
+#include "Converter.h"
+#include "ORBmatcher.h"
+#include "GeometricCamera.h"
 
-// #include <thread>
-// #include <include/CameraModels/Pinhole.h>
-// #include <include/CameraModels/KannalaBrandt8.h>
+#include <thread>
+#include "CameraModels/Pinhole.h
+
 
 namespace ORB_SLAM3
 {
