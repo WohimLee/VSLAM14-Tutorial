@@ -10,19 +10,16 @@ using namespace std;
 
 int main(int argc, char **argv) 
 {
-    if (argc != 3) {
-    cout << "usage: pose_estimation_2d2d img1 img2" << endl;
-    return 1;
-    }
     //-- 读取图像
-    Mat img_1 = imread(argv[1], cv::IMREAD_COLOR);
-    Mat img_2 = imread(argv[2], cv::IMREAD_COLOR);
+    Mat img_1 = imread("imgs/1.png", cv::IMREAD_COLOR);
+    Mat img_2 = imread("imgs/1.png", cv::IMREAD_COLOR);
     assert(img_1.data && img_2.data && "Can not load images!");
 
     vector<KeyPoint> keypoints_1, keypoints_2;
     vector<DMatch> matches;
+
     find_feature_matches(img_1, img_2, keypoints_1, keypoints_2, matches);
-    cout << "一共找到了" << matches.size() << "组匹配点" << endl;
+    printf("Number of matched points: %ld\n\n", matches.size());
 
     //-- 估计两张图像间运动
     Mat R, t;

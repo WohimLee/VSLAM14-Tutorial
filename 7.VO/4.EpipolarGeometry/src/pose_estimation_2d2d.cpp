@@ -14,16 +14,15 @@ using namespace cv;
 void find_feature_matches(const Mat &img_1, const Mat &img_2,
                           std::vector<KeyPoint> &keypoints_1,
                           std::vector<KeyPoint> &keypoints_2,
-                          std::vector<DMatch> &matches) {
+                          std::vector<DMatch> &matches)
+{
 	//-- 初始化
 	Mat descriptors_1, descriptors_2;
 	// used in OpenCV3
 	Ptr<FeatureDetector> detector = ORB::create();
 	Ptr<DescriptorExtractor> descriptor = ORB::create();
-	// use this if you are in OpenCV2
-	// Ptr<FeatureDetector> detector = FeatureDetector::create ( "ORB" );
-	// Ptr<DescriptorExtractor> descriptor = DescriptorExtractor::create ( "ORB" );
 	Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create("BruteForce-Hamming");
+
 	//-- 第一步:检测 Oriented FAST 角点位置
 	detector->detect(img_1, keypoints_1);
 	detector->detect(img_2, keypoints_2);
@@ -83,26 +82,25 @@ void pose_estimation_2d2d(std::vector<KeyPoint> keypoints_1,
 
     //-- 计算基础矩阵
     Mat fundamental_matrix;
-    fundamental_matrix = findFundamentalMat(points1, points2, cv::FM_8POINT);
-    cout << "fundamental_matrix is " << endl << fundamental_matrix << endl;
+    fundamental_matrix = cv::findFundamentalMat(points1, points2, cv::FM_8POINT);
+    cout << "Fundamental Matrix:" << endl << fundamental_matrix << endl << "\n";
 
     //-- 计算本质矩阵
     Point2d principal_point(325.1, 249.7);  //相机光心, TUM dataset标定值
     double focal_length = 521;      //相机焦距, TUM dataset标定值
     Mat essential_matrix;
-    essential_matrix = findEssentialMat(points1, points2, focal_length, principal_point);
-    cout << "essential_matrix is " << endl << essential_matrix << endl;
+    essential_matrix = cv::findEssentialMat(points1, points2, focal_length, principal_point);
+    cout << "Essential Matrix:" << endl << essential_matrix << endl << "\n";
 
     //-- 计算单应矩阵
     //-- 但是本例中场景不是平面，单应矩阵意义不大
     Mat homography_matrix;
-    homography_matrix = findHomography(points1, points2, RANSAC, 3);
-    cout << "homography_matrix is " << endl << homography_matrix << endl;
+    homography_matrix = cv::findHomography(points1, points2, RANSAC, 3);
+    cout << "Homography Matrix:" << endl << homography_matrix << endl << "\n";
 
-    //-- 从本质矩阵中恢复旋转和平移信息.
+    // 从本质矩阵中恢复旋转和平移信息
     // 此函数仅在Opencv3中提供
-    recoverPose(essential_matrix, points1, points2, R, t, focal_length, principal_point);
-    cout << "R is " << endl << R << endl;
-    cout << "t is " << endl << t << endl;
-
+    cv::recoverPose(essential_matrix, points1, points2, R, t, focal_length, principal_point);
+    cout << "R:" << endl << R << endl << "\n";
+    cout << "t:" << endl << t << endl << "\n";
 }

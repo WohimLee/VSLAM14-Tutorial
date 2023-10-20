@@ -52,12 +52,7 @@ Examples/$(TARGET) : objs/$(TARGET).o $(ORB)
 
 
 run : Examples/$(TARGET)
-	@./$< \
-		/home/nerf/datav/SLAM/ORB_SLAM3/Vocabulary/ORBvoc.txt \
-		/home/nerf/datav/SLAM/ORB_SLAM3/Examples/Monocular-Inertial/EuRoC.yaml \
-		/home/nerf/datav/Dataset/EuRoc/MH01 \
-		/home/nerf/datav/SLAM/ORB_SLAM3/Examples/Monocular-Inertial/EuRoC_TimeStamps/MH01.txt \
-		dataset-MH01_monoi
+	@./$<
 
 clean :
 	@rm -rf objs Examples/$(TARGET)
