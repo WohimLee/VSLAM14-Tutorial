@@ -40,8 +40,8 @@ int main(int argc, char** argv)
 
     
     // ######### LoadImage #########
-    std::string img1 = "../imgs/1.png";
-    std::string img2 = "../imgs/2.png";
+    std::string img1 = "../../../Common/data/1.png";
+    std::string img2 = "../../../Common/data/2.png";
 
     cv::Mat im;
     im = cv::imread(img1, cv::IMREAD_UNCHANGED);
@@ -51,7 +51,7 @@ int main(int argc, char** argv)
     cv::cvtColor(mImGray, mImGray, cv::COLOR_RGB2GRAY);
 
     // ######### Camera #########
-    ORB_SLAM3::GeometricCamera* pCamera;
+    ORB_SLAM3::GeometricCamera* pCamera = new ORB_SLAM3::GeometricCamera();
 
     // ######### Frame #########
     cv::Mat mDistCoef;
