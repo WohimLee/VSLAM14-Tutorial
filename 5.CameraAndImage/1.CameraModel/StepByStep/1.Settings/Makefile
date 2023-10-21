@@ -1,8 +1,8 @@
-include ../../Common/mks/OpenCV.mk
-include ../../Common/mks/Eigen.mk
-include ../../Common/mks/DBoW2.mk
-include ../../Common/mks/Sophus.mk
-include ../../Common/mks/g2o.mk
+include ../../../../Common/mks/OpenCV.mk
+include ../../../../Common/mks/Eigen.mk
+include ../../../../Common/mks/DBoW2.mk
+include ../../../../Common/mks/Sophus.mk
+include ../../../../Common/mks/g2o.mk
 
 
 
@@ -15,7 +15,7 @@ cc_srcs := $(shell find src -name "*.cc")
 cc_objs := $(patsubst src/%.cc,objs/%.o,$(cc_srcs))
 
 include_dirs := include $(Eigen_INCLUDE) $(OpenCV_INCLUDE) $(DBoW2_INCLUDE) $(Sophus_INCLUDE) $(g2o_INCLUDE)
-linking_libs := $(OpenCV_LIBS) $(DBoW2_LIBS) $(g2o_LIBS)
+linking_libs := ORB_SLAM3 $(OpenCV_LIBS) $(DBoW2_LIBS) $(g2o_LIBS)
 library_dirs := lib $(OpenCV_LIB_DIR) $(DBoW2_LIB_DIR) $(g2o_LIB_DIR)
 
 
@@ -41,7 +41,7 @@ $(ORB) : $(cc_objs)
 
 
 # Compile example
-objs/$(TARGET).o : $(MAIN) 
+objs/$(TARGET).o : $(MAIN) $(ORB)
 	@echo [INFO]: Compile $< to $@
 	@mkdir -p $(dir $@)
 	@g++ -c $< -o $@ $(compile_options)
@@ -53,13 +53,11 @@ Examples/$(TARGET) : objs/$(TARGET).o
 
 
 
-
-
 run : Examples/$(TARGET)
 	@./$< 
 
 clean :
-	@rm -rf objs Examples/$(TARGET)
+	@rm -rf lib objs Examples/$(TARGET)
 
 debug :
 	@echo $(DBoW2_LIBS)
