@@ -20,7 +20,6 @@
 
 #include <Eigen/Geometry>
 
-#include "Converter.h"
 #include "GeometricTools.h"
 
 namespace ORB_SLAM3 {

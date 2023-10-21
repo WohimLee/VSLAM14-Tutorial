@@ -7,5 +7,7 @@
         "chrono": "cpp",
         "geometry": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "stm32-for-vscode.openOCDPath": false,
+    "stm32-for-vscode.armToolchainPath": false
 }

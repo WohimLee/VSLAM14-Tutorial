@@ -4,8 +4,7 @@
 
 #include <assert.h>
 
-#include "GeometricCamera.h"
-
+#include "CameraModels/GeometricCamera.h"
 #include "TwoViewReconstruction.h"
 
 namespace ORB_SLAM3 {
