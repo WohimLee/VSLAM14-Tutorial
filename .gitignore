@@ -1,7 +1,11 @@
 
 # File
 test.py
+*.o
+*.so
 
 # Folder
+lib
+objs
 
 

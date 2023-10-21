@@ -59,7 +59,7 @@ run : Examples/$(TARGET)
 	@
 
 clean :
-	@rm -rf objs Examples/$(TARGET)
+	@rm -rf lib objs Examples/$(TARGET)
 
 debug :
 	@echo $(DBoW2_LIBS)

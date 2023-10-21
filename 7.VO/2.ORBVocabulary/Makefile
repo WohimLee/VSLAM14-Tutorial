@@ -1,9 +1,3 @@
-include ../mks/OpenCV.mk
-include ../mks/Eigen.mk
-include ../mks/DBoW2.mk
-include ../mks/Sophus.mk
-include ../mks/g2o.mk
-
 
 
 MAIN := ./Examples/example.cc
@@ -59,7 +53,7 @@ run : Examples/$(TARGET)
 	@./$< 
 
 clean :
-	@rm -rf objs Examples/$(TARGET)
+	@rm -rf lib objs Examples/$(TARGET)
 
 debug :
 	@echo $(DBoW2_LIBS)
