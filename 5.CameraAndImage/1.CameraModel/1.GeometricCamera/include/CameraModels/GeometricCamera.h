@@ -1,5 +1,4 @@
 
-
 #ifndef CAMERAMODELS_GEOMETRICCAMERA_H
 #define CAMERAMODELS_GEOMETRICCAMERA_H
 
@@ -20,7 +19,6 @@
 
 #include <Eigen/Geometry>
 
-#include "GeometricTools.h"
 
 namespace ORB_SLAM3 {
     class GeometricCamera {

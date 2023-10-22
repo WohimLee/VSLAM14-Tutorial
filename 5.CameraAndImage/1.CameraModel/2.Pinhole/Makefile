@@ -1,8 +1,8 @@
-include ../../../../Common/mks/OpenCV.mk
-include ../../../../Common/mks/Eigen.mk
-include ../../../../Common/mks/DBoW2.mk
-include ../../../../Common/mks/Sophus.mk
-include ../../../../Common/mks/g2o.mk
+include ../../../Common/mks/OpenCV.mk
+include ../../../Common/mks/Eigen.mk
+include ../../../Common/mks/DBoW2.mk
+include ../../../Common/mks/Sophus.mk
+include ../../../Common/mks/g2o.mk
 
 
 

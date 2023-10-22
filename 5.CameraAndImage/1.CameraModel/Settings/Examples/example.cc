@@ -19,7 +19,7 @@ enum eSensor{
 int main(int argc, char** argv)
 {
 
-    const string strSettingsFile = "../../../../Common/config/EuRoC.yaml";
+    const string strSettingsFile = "../../../Common/config/EuRoC.yaml";
 
     cv::FileStorage fsSettings(strSettingsFile.c_str(), cv::FileStorage::READ);
     if(!fsSettings.isOpened())
