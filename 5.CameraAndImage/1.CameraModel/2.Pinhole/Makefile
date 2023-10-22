@@ -25,7 +25,7 @@ L_options := $(library_dirs:%=-L%)
 r_options := $(library_dirs:%=-Wl,-rpath=%)
 
 
-compile_options := -std=c++11 -fPIC -w $(I_options)
+compile_options := -g -std=c++11 -fPIC -w $(I_options)
 linking_options := $(l_options) $(L_options) $(r_options)
 
 # Compile ORB lib
@@ -41,12 +41,12 @@ $(ORB) : $(cc_objs)
 
 
 # Compile example
-objs/$(TARGET).o : $(MAIN) $(ORB)
+objs/$(TARGET).o : $(MAIN) 
 	@echo [INFO]: Compile $< to $@
 	@mkdir -p $(dir $@)
 	@g++ -c $< -o $@ $(compile_options)
 
-Examples/$(TARGET) : objs/$(TARGET).o 
+Examples/$(TARGET) : objs/$(TARGET).o  $(ORB)
 	@echo [INFO]: Link $^ to $@
 	@mkdir -p $(dir $@)
 	@g++ $< -o $@ $(linking_options)
