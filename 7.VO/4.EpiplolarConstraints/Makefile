@@ -1,8 +1,8 @@
-include ../../../Common/mks/OpenCV.mk
-include ../../../Common/mks/Eigen.mk
-include ../../../Common/mks/DBoW2.mk
-include ../../../Common/mks/Sophus.mk
-include ../../../Common/mks/g2o.mk
+include ../../Common/mks/OpenCV.mk
+include ../../Common/mks/Eigen.mk
+include ../../Common/mks/DBoW2.mk
+include ../../Common/mks/Sophus.mk
+include ../../Common/mks/g2o.mk
 
 
 
@@ -35,7 +35,7 @@ objs/%.o : src/%.cc
 	@g++ -c $< -o $@ $(compile_options)
 
 $(ORB) : $(cc_objs)
-	@echo [INFO]: Link $^ to $@
+	@echo [INFO]: Linking $^ to $@
 	@mkdir -p $(dir $@)
 	@g++ -shared $^ -o $@
 
@@ -47,7 +47,7 @@ objs/$(TARGET).o : $(MAIN)
 	@g++ -c $< -o $@ $(compile_options)
 
 Examples/$(TARGET) : objs/$(TARGET).o  $(ORB)
-	@echo [INFO]: Link $^ to $@
+	@echo [INFO]: Linking $^ to $@
 	@mkdir -p $(dir $@)
 	@g++ $< -o $@ $(linking_options)
 
